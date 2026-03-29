@@ -12,6 +12,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from odontoflow.api.routers import auth as auth_router
+from odontoflow.api.routers import patient as patient_router
 from odontoflow.shared.event_bus import EventBus
 
 load_dotenv()
@@ -47,6 +48,8 @@ app.add_middleware(
 
 # Routers
 app.include_router(auth_router.router)
+app.include_router(patient_router.router)
+app.include_router(patient_router.cep_router)
 
 
 @app.get("/health")
