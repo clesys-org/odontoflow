@@ -13,6 +13,7 @@ from odontoflow.iam.infrastructure.in_memory_repos import (
     InMemoryTenantRepository,
     InMemoryUserRepository,
 )
+from odontoflow.patient.infrastructure.in_memory_patient_repo import InMemoryPatientRepository
 from odontoflow.shared.auth import CurrentUser
 from odontoflow.shared.domain.types import UserRole
 from odontoflow.shared.event_bus import EventBus
@@ -21,6 +22,7 @@ from odontoflow.shared.event_bus import EventBus
 _user_repo = InMemoryUserRepository()
 _tenant_repo = InMemoryTenantRepository()
 _membership_repo = InMemoryMembershipRepository()
+_patient_repo = InMemoryPatientRepository()
 
 _bearer = HTTPBearer(auto_error=False)
 
@@ -39,6 +41,10 @@ def get_tenant_repo() -> InMemoryTenantRepository:
 
 def get_membership_repo() -> InMemoryMembershipRepository:
     return _membership_repo
+
+
+def get_patient_repo() -> InMemoryPatientRepository:
+    return _patient_repo
 
 
 async def get_current_user(
