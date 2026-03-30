@@ -13,6 +13,7 @@ from odontoflow.iam.infrastructure.in_memory_repos import (
     InMemoryTenantRepository,
     InMemoryUserRepository,
 )
+from odontoflow.clinical.infrastructure.in_memory_clinical_repo import InMemoryClinicalRepository
 from odontoflow.patient.infrastructure.in_memory_patient_repo import InMemoryPatientRepository
 from odontoflow.scheduling.infrastructure.in_memory_scheduling_repo import (
     InMemoryAppointmentRepository,
@@ -27,6 +28,7 @@ _user_repo = InMemoryUserRepository()
 _tenant_repo = InMemoryTenantRepository()
 _membership_repo = InMemoryMembershipRepository()
 _patient_repo = InMemoryPatientRepository()
+_clinical_repo = InMemoryClinicalRepository()
 _appointment_repo = InMemoryAppointmentRepository()
 _provider_schedule_repo = InMemoryProviderScheduleRepository()
 
@@ -51,6 +53,10 @@ def get_membership_repo() -> InMemoryMembershipRepository:
 
 def get_patient_repo() -> InMemoryPatientRepository:
     return _patient_repo
+
+
+def get_clinical_repo() -> InMemoryClinicalRepository:
+    return _clinical_repo
 
 
 def get_appointment_repo() -> InMemoryAppointmentRepository:
