@@ -17,6 +17,7 @@ dependencies = [
     # Auth
     "python-jose[cryptography]>=3.3",
     "passlib[bcrypt]>=1.7",
+    "bcrypt>=4.0,<4.1",  # passlib compat — 4.1+ breaks detect_wrap_bug
     # Utils
     "python-dotenv>=1.0",
     "python-multipart>=0.0.18",

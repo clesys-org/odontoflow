@@ -34,6 +34,12 @@ VERSION = "0.1.0"
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     """Startup e shutdown da aplicacao."""
     app.state.event_bus = EventBus()
+
+    # Seed demo data em desenvolvimento
+    if os.getenv("APP_ENV", "development") == "development":
+        from odontoflow.api.seed import seed_demo_data
+        await seed_demo_data()
+
     yield
 
 
