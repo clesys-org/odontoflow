@@ -29,7 +29,7 @@ export default function LoginPage() {
       const data = await res.json();
       localStorage.setItem("access_token", data.access_token);
       localStorage.setItem("refresh_token", data.refresh_token);
-      window.location.href = "/";
+      window.location.href = "/pacientes";
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erro ao fazer login");
     } finally {
