@@ -11,11 +11,15 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from odontoflow.api.routers import analytics as analytics_router
 from odontoflow.api.routers import auth as auth_router
 from odontoflow.api.routers import billing as billing_router
 from odontoflow.api.routers import clinical as clinical_router
+from odontoflow.api.routers import insurance as insurance_router
+from odontoflow.api.routers import inventory as inventory_router
 from odontoflow.api.routers import patient as patient_router
 from odontoflow.api.routers import scheduling as scheduling_router
+from odontoflow.api.routers import staff as staff_router
 from odontoflow.api.routers import treatment as treatment_router
 from odontoflow.shared.event_bus import EventBus
 
@@ -58,6 +62,10 @@ app.include_router(clinical_router.router)
 app.include_router(scheduling_router.router)
 app.include_router(treatment_router.router)
 app.include_router(billing_router.router)
+app.include_router(insurance_router.router)
+app.include_router(inventory_router.router)
+app.include_router(staff_router.router)
+app.include_router(analytics_router.router)
 
 
 @app.get("/health")
