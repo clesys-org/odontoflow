@@ -13,11 +13,16 @@ from odontoflow.iam.infrastructure.in_memory_repos import (
     InMemoryTenantRepository,
     InMemoryUserRepository,
 )
+from odontoflow.billing.infrastructure.in_memory_billing_repo import InMemoryInvoiceRepository
 from odontoflow.clinical.infrastructure.in_memory_clinical_repo import InMemoryClinicalRepository
 from odontoflow.patient.infrastructure.in_memory_patient_repo import InMemoryPatientRepository
 from odontoflow.scheduling.infrastructure.in_memory_scheduling_repo import (
     InMemoryAppointmentRepository,
     InMemoryProviderScheduleRepository,
+)
+from odontoflow.treatment.infrastructure.in_memory_treatment_repo import (
+    InMemoryProcedureCatalogRepository,
+    InMemoryTreatmentPlanRepository,
 )
 from odontoflow.shared.auth import CurrentUser
 from odontoflow.shared.domain.types import UserRole
@@ -31,6 +36,9 @@ _patient_repo = InMemoryPatientRepository()
 _clinical_repo = InMemoryClinicalRepository()
 _appointment_repo = InMemoryAppointmentRepository()
 _provider_schedule_repo = InMemoryProviderScheduleRepository()
+_treatment_plan_repo = InMemoryTreatmentPlanRepository()
+_procedure_catalog_repo = InMemoryProcedureCatalogRepository()
+_invoice_repo = InMemoryInvoiceRepository()
 
 _bearer = HTTPBearer(auto_error=False)
 
@@ -65,6 +73,18 @@ def get_appointment_repo() -> InMemoryAppointmentRepository:
 
 def get_provider_schedule_repo() -> InMemoryProviderScheduleRepository:
     return _provider_schedule_repo
+
+
+def get_treatment_plan_repo() -> InMemoryTreatmentPlanRepository:
+    return _treatment_plan_repo
+
+
+def get_procedure_catalog_repo() -> InMemoryProcedureCatalogRepository:
+    return _procedure_catalog_repo
+
+
+def get_invoice_repo() -> InMemoryInvoiceRepository:
+    return _invoice_repo
 
 
 async def get_current_user(
