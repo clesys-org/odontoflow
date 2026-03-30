@@ -36,6 +36,12 @@ from odontoflow.treatment.infrastructure.in_memory_treatment_repo import (
     InMemoryProcedureCatalogRepository,
     InMemoryTreatmentPlanRepository,
 )
+from odontoflow.communication.infrastructure.in_memory_communication_repo import (
+    InMemoryCampaignRepository,
+    InMemoryMessageRepository,
+    InMemoryMessageTemplateRepository,
+)
+from odontoflow.website.infrastructure.in_memory_website_repo import InMemoryWebsiteRepository
 from odontoflow.analytics.infrastructure.analytics_aggregator import AnalyticsAggregator
 from odontoflow.shared.auth import CurrentUser
 from odontoflow.shared.domain.types import UserRole
@@ -58,6 +64,10 @@ _material_repo = InMemoryMaterialRepository()
 _supplier_repo = InMemorySupplierRepository()
 _staff_repo = InMemoryStaffRepository()
 _production_repo = InMemoryProductionRepository()
+_message_template_repo = InMemoryMessageTemplateRepository()
+_message_repo = InMemoryMessageRepository()
+_campaign_repo = InMemoryCampaignRepository()
+_website_repo = InMemoryWebsiteRepository()
 _analytics_aggregator = AnalyticsAggregator(
     patient_repo=_patient_repo,
     appointment_repo=_appointment_repo,
@@ -133,6 +143,22 @@ def get_staff_repo() -> InMemoryStaffRepository:
 
 def get_production_repo() -> InMemoryProductionRepository:
     return _production_repo
+
+
+def get_message_template_repo() -> InMemoryMessageTemplateRepository:
+    return _message_template_repo
+
+
+def get_message_repo() -> InMemoryMessageRepository:
+    return _message_repo
+
+
+def get_campaign_repo() -> InMemoryCampaignRepository:
+    return _campaign_repo
+
+
+def get_website_repo() -> InMemoryWebsiteRepository:
+    return _website_repo
 
 
 def get_analytics_aggregator() -> AnalyticsAggregator:
