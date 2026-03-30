@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@source "../../";
+
 @theme {
   --color-primary-50: #eff6ff;
   --color-primary-100: #dbeafe;
@@ -14,7 +16,13 @@
 
   --color-dental-50: #f0fdfa;
   --color-dental-100: #ccfbf1;
+  --color-dental-200: #99f6e4;
+  --color-dental-300: #5eead4;
+  --color-dental-400: #2dd4bf;
   --color-dental-500: #14b8a6;
   --color-dental-600: #0d9488;
   --color-dental-700: #0f766e;
+  --color-dental-800: #115e59;
+  --color-dental-900: #134e4a;
+  --color-dental-950: #042f2e;
 }
